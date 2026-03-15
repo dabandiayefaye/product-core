@@ -22,7 +22,10 @@ public class ProductService {
     public List<Product> listProducts() {
         return productRepository.findAll();
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
     
 =======
@@ -33,6 +36,22 @@ public class ProductService {
         product.setQuantity(quantity);
         return productRepository.save(product);
     }
+<<<<<<< Updated upstream
+=======
+=======
+
+<<<<<<< HEAD
+>>>>>>> feature/count-lowstock
+    
+=======
+    // 0.2.0-SNAPSHOT
+    public Product updateQuantity(Long id, int quantity) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setQuantity(quantity);
+        return productRepository.save(product);
+    }
+>>>>>>> Stashed changes
 
     // 0.3.0-SNAPSHOT
     public long countLowStockProducts() {
