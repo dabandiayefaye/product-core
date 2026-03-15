@@ -23,5 +23,20 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+<<<<<<< HEAD
     
+=======
+    // 0.2.0-SNAPSHOT
+    public Product updateQuantity(Long id, int quantity) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setQuantity(quantity);
+        return productRepository.save(product);
+    }
+
+    // 0.3.0-SNAPSHOT
+    public long countLowStockProducts() {
+        return productRepository.findByQuantityLessThanEqual(5).size();
+    }
+>>>>>>> feature/update-quantity
 }
