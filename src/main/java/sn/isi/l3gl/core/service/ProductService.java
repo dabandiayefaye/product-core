@@ -21,5 +21,12 @@ public class ProductService {
     public List<Product> listProducts() {
         return productRepository.findAll();
     }
+    // 0.2.0-SNAPSHOT
+    public Product updateQuantity(Long id, int quantity) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setQuantity(quantity);
+        return productRepository.save(product);
+    }
 
 }
